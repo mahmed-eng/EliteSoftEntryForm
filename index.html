@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join EliteSoft — Let's Create Magic</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -13,16 +15,19 @@
       --primary: #f59e0b;
       --accent: #fbbf24;
     }
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: #0a0a0f;
       color: #f1f5f9;
       overflow-x: hidden;
     }
+
     .logo-font {
       font-family: 'Space Grotesk', sans-serif;
     }
-    /* Animated Multicolored Background */
+
+    /* Animated Multicolored Background with Floating Orbs */
     .animated-bg {
       position: fixed;
       inset: 0;
@@ -31,6 +36,7 @@
       animation: gradientShift 25s ease infinite;
       z-index: -2;
     }
+
     .animated-bg::before {
       content: '';
       position: absolute;
@@ -41,15 +47,18 @@
       animation: floatOrbs 30s ease-in-out infinite;
       z-index: -1;
     }
+
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     @keyframes floatOrbs {
       0%, 100% { transform: translate(0, 0) rotate(0deg); }
       50% { transform: translate(30px, -40px) rotate(5deg); }
     }
+
     /* Crystal Glass Effect */
     .glass {
       background: rgba(255, 255, 255, 0.08);
@@ -58,41 +67,68 @@
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
+
     .form-container {
       animation: fadeInScale 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     }
+
     @keyframes fadeInScale {
-      from { opacity: 0; transform: scale(0.92) translateY(40px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
+      from {
+        opacity: 0;
+        transform: scale(0.92) translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
     }
-    input:focus, textarea:focus, select:focus {
-      border-color: #fbbf24;
-      box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.25);
-      background: rgba(255, 255, 255, 0.12);
-    }
-    .submit-btn {
-      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
-      background-size: 200% 100%;
-      transition: all 0.4s ease;
-    }
-    .submit-btn:hover {
-      background-position: right center;
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.6);
-    }
+
     .field-label {
       font-size: 0.875rem;
       font-weight: 500;
       color: #e2e8f0;
     }
+
+    input, textarea, select {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #fbbf24;
+      box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.25);
+      background: rgba(255, 255, 255, 0.12);
+      outline: none;
+    }
+
+    .submit-btn {
+      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+      background-size: 200% 100%;
+      transition: all 0.4s ease;
+    }
+
+    .submit-btn:hover {
+      background-position: right center;
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.6);
+    }
+
+    /* Subtle floating animation for the glass card */
+    .glass {
+      transition: transform 8s ease-in-out;
+    }
   </style>
 </head>
+
 <body>
+
   <!-- Animated Background -->
   <div class="animated-bg"></div>
 
   <div class="min-h-screen flex items-center justify-center px-6 py-16 relative z-10">
     <div class="max-w-2xl w-full">
+
       <!-- Header -->
       <div class="text-center mb-10">
         <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2.5 rounded-3xl border border-white/10 mb-6">
@@ -110,71 +146,68 @@
       <!-- Crystal Glass Form -->
       <div class="form-container glass rounded-3xl p-8 sm:p-12">
         <form id="joinForm" class="space-y-8">
-          <!-- Web3Forms Access Key -->
-          <input type="hidden" name="access_key" value="96f36b2d-502a-435b-896e-b5eca3749d16">
-          <input type="hidden" name="subject" value="New Team/Collaboration Application - EliteSoft">
+
+          <!-- Hidden Fields -->
+          <input type="hidden" name="_subject" value="New Application - EliteSoft">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Full Name -->
             <div>
               <label class="field-label block mb-2">Full Name <span class="text-red-400">*</span></label>
               <input type="text" name="name" required
-                class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-slate-400 focus:outline-none transition-all"
-                placeholder="Ahmed Khan">
+                class="w-full px-6 py-4 rounded-2xl text-white placeholder-slate-400">
             </div>
 
             <!-- Email -->
             <div>
-              <label class="field-label block mb-2">Gmail / Email <span class="text-red-400">*</span></label>
+              <label class="field-label block mb-2">Email <span class="text-red-400">*</span></label>
               <input type="email" name="email" required
-                class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-slate-400 focus:outline-none transition-all"
-                placeholder="you@gmail.com">
+                class="w-full px-6 py-4 rounded-2xl text-white placeholder-slate-400">
             </div>
 
             <!-- City -->
             <div>
               <label class="field-label block mb-2">City <span class="text-red-400">*</span></label>
               <input type="text" name="city" required
-                class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-slate-400 focus:outline-none transition-all"
-                placeholder="Karachi, Pakistan">
+                class="w-full px-6 py-4 rounded-2xl text-white placeholder-slate-400">
             </div>
 
             <!-- Field / Profession -->
             <div>
-              <label class="field-label block mb-2">Your Field / Profession <span class="text-red-400">*</span></label>
+              <label class="field-label block mb-2">Your Field <span class="text-red-400">*</span></label>
               <select name="field" required
-                class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-white focus:outline-none transition-all">
+                class="w-full px-6 py-4 rounded-2xl text-white focus:outline-none appearance-none cursor-pointer">
                 <option value="" disabled selected>Select your field</option>
-                <option value="Web Development">Web Development</option>
-                <option value="Graphic Design">Graphic Design</option>
-                <option value="Video Editing">Video Editing</option>
-                <option value="SEO / Digital Marketing">SEO / Digital Marketing</option>
-                <option value="UI/UX Design">UI/UX Design</option>
-                <option value="Content Creation">Content Creation</option>
-                <option value="Other">Other</option>
+                <option>Web Development</option>
+                <option>Graphic Design</option>
+                <option>Video Editing</option>
+                <option>SEO / Digital Marketing</option>
+                <option>UI/UX Design</option>
+                <option>Content Creation</option>
+                <option>Other</option>
               </select>
             </div>
           </div>
 
-          <!-- Interests / Skills -->
+          <!-- Skills / Interests -->
           <div>
             <label class="field-label block mb-2">Your Interests / Skills <span class="text-red-400">*</span></label>
-            <textarea name="interests" rows="3" required
-              class="w-full bg-white/10 border border-white/20 rounded-3xl px-6 py-5 text-white placeholder-slate-400 resize-y min-h-[110px] focus:outline-none transition-all"
-              placeholder="e.g. Modern web animations, 3D design, AI tools, branding, motion graphics..."></textarea>
+            <textarea name="skills" rows="3" required
+              class="w-full px-6 py-5 rounded-3xl text-white placeholder-slate-400 resize-y min-h-[110px]"></textarea>
           </div>
 
-          <!-- Questions / Message -->
+          <!-- Message -->
           <div>
             <label class="field-label block mb-2">Any Questions or Message for Us?</label>
             <textarea name="message" rows="4"
-              class="w-full bg-white/10 border border-white/20 rounded-3xl px-6 py-5 text-white placeholder-slate-400 resize-y min-h-[130px] focus:outline-none transition-all"
-              placeholder="What do you want to achieve by joining us? Any specific project ideas?"></textarea>
+              class="w-full px-6 py-5 rounded-3xl text-white placeholder-slate-400 resize-y min-h-[130px]"></textarea>
           </div>
 
           <!-- Submit Button -->
           <button type="submit" id="submitBtn"
-            class="submit-btn w-full text-black font-bold text-lg py-6 rounded-3xl flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl transition-all">
+            class="submit-btn w-full text-black font-bold text-lg py-6 rounded-3xl flex items-center justify-center gap-3 shadow-xl">
             <span>Send My Application</span>
             <i class="fa-solid fa-paper-plane"></i>
           </button>
@@ -185,7 +218,7 @@
         </form>
       </div>
 
-      <!-- Footer Note -->
+      <!-- Footer -->
       <div class="text-center mt-8 text-slate-500 text-sm">
         Powered by <span class="text-amber-400 font-medium">EliteSoft</span> • Made with Passion ✨
       </div>
@@ -209,7 +242,7 @@
 
       const originalHTML = submitBtn.innerHTML;
 
-      // Show loading state
+      // Loading state
       submitBtn.innerHTML = `
         <i class="fa-solid fa-spinner fa-spin mr-3"></i>
         Sending Application...
@@ -217,45 +250,38 @@
       submitBtn.disabled = true;
 
       try {
-        const formData = new FormData(form);
-
-        const response = await fetch("https://api.web3forms.com/submit", {
+        const response = await fetch("https://formsubmit.co/ajax/hashmiahmed1997@gmail.com", {
           method: "POST",
-          body: formData
+          body: new FormData(form)
         });
 
         const data = await response.json();
 
-        if (response.ok && data.success) {
-          // Success
+        if (data.success === "true" || response.ok) {
           toastMessage.textContent = "Application sent successfully! We'll contact you soon.";
           toast.classList.remove('hidden');
           toast.classList.add('flex');
 
           form.reset();
 
-          // Hide toast after 5 seconds
           setTimeout(() => {
             toast.classList.add('hidden');
             toast.classList.remove('flex');
           }, 5000);
         } else {
-          // Error from Web3Forms
-          alert("Error: " + (data.message || "Something went wrong. Please try again."));
+          alert("Error: " + (data.message || "Something went wrong."));
         }
       } catch (error) {
-        alert("Something went wrong. Please check your internet connection and try again.");
+        alert("Something went wrong. Please check your connection and try again.");
       } finally {
-        // Reset button
         submitBtn.innerHTML = originalHTML;
         submitBtn.disabled = false;
       }
     });
 
-    // Optional: Subtle floating animation for glass card
+    // Subtle floating animation for glass card
     window.addEventListener('load', () => {
-      const glass = document.querySelector('.form-container');
-      glass.style.transition = 'transform 8s ease-in-out';
+      const glass = document.querySelector('.glass');
       setInterval(() => {
         glass.style.transform = 'translateY(-8px)';
         setTimeout(() => {
@@ -264,5 +290,6 @@
       }, 8000);
     });
   </script>
+
 </body>
 </html>
