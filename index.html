@@ -167,6 +167,14 @@
                 class="w-full px-6 py-4 rounded-2xl text-white placeholder-slate-400">
             </div>
 
+            <!-- Phone Number (NEW Mandatory Field) -->
+            <div>
+              <label class="field-label block mb-2">Phone Number <span class="text-red-400">*</span></label>
+              <input type="tel" name="phone" required
+                class="w-full px-6 py-4 rounded-2xl text-white placeholder-slate-400"
+                placeholder="+92 300 1234567">
+            </div>
+
             <!-- City -->
             <div>
               <label class="field-label block mb-2">City <span class="text-red-400">*</span></label>
@@ -175,7 +183,7 @@
             </div>
 
             <!-- Field / Profession -->
-            <div>
+            <div class="md:col-span-2">
               <label class="field-label block mb-2">Your Field <span class="text-red-400">*</span></label>
               <select name="field" required
                 class="w-full px-6 py-4 rounded-2xl text-white focus:outline-none appearance-none cursor-pointer">
